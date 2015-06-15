@@ -36,8 +36,6 @@ This installs a lot of tools like `git` which aren't needed for plebeians.
 xcode-select --install
 ```
 
-This command may actually require you to use `sudo`.
-
 ## Install Homebrew
 
 [Homebrew](http://brew.sh/) is OS X's package manager.
@@ -126,6 +124,8 @@ At least not until node.js and io.js merge.
 If anyone ever tells you to `npm update -g npm` or `npm install -g npm`,
 tell them to shuttup.
 
+Remember to add `export JOBS=max` in your `~/.bash_profile` so your `npm install`s are faster!
+
 ## thefuck?
 
 [thefuck](https://github.com/nvbn/thefuck) is a nifty tool that allows you to fix your previous CLI typos by just typing `fuck`.
@@ -158,3 +158,30 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 ```
+
+## Setting up databases
+
+Homebrew makes setting up databases super easy.
+First step - install it with Homebrew:
+
+```bash
+brew install redis
+```
+
+Then you'll see information on your terminal like the following:
+
+```
+To reload redis after an upgrade:
+    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+Or, if you don't want/need launchctl, you can just run:
+    redis-server /usr/local/etc/redis.conf
+```
+
+To read this information again, just type `brew info redis`.
+All I do is copy and paste the first 2 commands listed.
+Voila!
+`redis-server` will always be running!
+You won't have to open a bunch of terminals to keep it running!
+
+Rinse and repeat for all your databases.
