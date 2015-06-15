@@ -129,6 +129,7 @@ Remember to add `export JOBS=max` in your `~/.bash_profile` so your `npm install
 ## thefuck?
 
 [thefuck](https://github.com/nvbn/thefuck) is a nifty tool that allows you to fix your previous CLI typos by just typing `fuck`.
+It perhaps has the greatest UX of all products, ever.
 
 Installing it is easy:
 
