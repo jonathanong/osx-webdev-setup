@@ -186,3 +186,32 @@ Voila!
 You won't have to open a bunch of terminals to keep it running!
 
 Rinse and repeat for all your databases.
+
+## brew options
+
+A lot of packages on Homebrew have terrible defaults.
+I haven't bothered making a PR to update these defaults,
+mostly because I don't have a reason to change the defaults other than, "why not?"
+
+For example, type the following:
+
+```bash
+brew options ffmpeg
+```
+
+You're probably overloaded with options.
+Fun isn't it?
+Supposedly, once you install a package with homebrew using specific options,
+future updates will use the same options.
+I haven't found that to be the case - I have to reinstall `ffmpeg` many times - but I'm not going to try reproducing it.
+
+Have fun reading all the option info and typing commands like:
+
+```bash
+brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265
+```
+
+Not only will this install all the dependencies like `webp`, 
+it will make sure you can pretty much throw anything at `ffmpeg`.
+
+You'll probably have to do the same with `imagemagick` and/or `graphicsmagick`.
