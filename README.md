@@ -57,6 +57,8 @@ brew install vim
 brew install git
 # download stuff
 brew install curl
+# docker on your mac
+brew install boot2docker
 # for your pr0n
 brew install youtube-dl
 ```
