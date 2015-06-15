@@ -36,6 +36,8 @@ This installs a lot of tools like `git` which aren't needed for plebeians.
 xcode-select --install
 ```
 
+If you're actually going to use XCode, just install it from the App Store and do the whole shebang.
+
 ## Install Homebrew
 
 [Homebrew](http://brew.sh/) is OS X's package manager.
