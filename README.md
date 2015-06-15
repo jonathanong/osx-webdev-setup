@@ -219,3 +219,10 @@ Not only will this install all the dependencies like `webp`,
 it will make sure you can pretty much throw anything at `ffmpeg`.
 
 You'll probably have to do the same with `imagemagick` and/or `graphicsmagick`.
+
+## Other Tools
+
+- [iStat Menus](http://bjango.com/mac/istatmenus/) - help me figure out if something's taking too much CPU, RAM, or network
+- [Atom](https://atom.io/) - the best text editor :D
+- [Sublime Text](http://www.sublimetext.com/) - the second best text editor
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - for VMs, which can't be install using Homebrew
