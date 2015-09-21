@@ -255,6 +255,12 @@ it will make sure you can pretty much throw anything at `ffmpeg`.
 
 You'll probably have to do the same with `imagemagick` and/or `graphicsmagick`.
 
+## Java
+
+Unfortunately, a lot of programs still require Java.
+Install Java by googling "Java OS X".
+https://support.apple.com/kb/DL1572?locale=en_US
+
 ## Other Tools
 
 - [iStat Menus](http://bjango.com/mac/istatmenus/) - help me figure out if something's taking too much CPU, RAM, or network
