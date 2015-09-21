@@ -192,6 +192,13 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 ```
 
+Make sure your git pushes only the current branch.
+Run the following:
+
+```bash
+git config --global push.default simple
+```
+
 ## Setting up databases
 
 Homebrew makes setting up databases super easy.
