@@ -164,6 +164,17 @@ or just:
 ```
 shopt -s globstar
 ```
+
+## vim
+
+By default, `vim` installed via `brew` sucks.
+Create a `~/.vimrc` with the following:
+
+```
+:set nocompatible
+syntax on
+```
+
 ## git
 
 `git` by default doesn't have autocompletion on OS X.
