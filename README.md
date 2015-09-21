@@ -23,7 +23,6 @@ Some lines you should add are:
 
 - `ulimit -n 10240` - bumps the maximum number of file descriptors you can have open on your computer.
   There's no purpose for the default limit, especially on SSDs.
-- `shopt -s globstar` - support `**/*.js` commands.
 - `export JOBS=max` - tells `npm` to compile and install all your native addons in parallel and not sequentially.
   This greatly increases installation times.
 
@@ -147,6 +146,24 @@ Then alias it as `fuck` (or whatever you want) manually by adding this line to y
 alias fuck='$(thefuck $(fc -ln -1))'
 ```
 
+## globstars
+
+OS X, by default, does not support globstars like `**/*.js`. 
+It may work for certain packages who support it,
+but not by default. 
+To add support for it, follow the instructions at http://mistermorris.com/blog/get-yourself-globstar-bash-4-for-your-mac-terminal/.
+
+Then add the following line to your `~/.bash_profile`:
+
+```bash
+echo "shopt -s globstar" >> ~/.bash_profile
+```
+
+or just:
+
+```
+shopt -s globstar
+```
 ## git
 
 `git` by default doesn't have autocompletion on OS X.
