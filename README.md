@@ -97,7 +97,7 @@ Once you've installed nvm,
 install the version of node.js you use:
 
 ```bash
-nvm install 2
+nvm install 4
 ```
 
 To make sure each terminal uses the version of node you want,
@@ -107,7 +107,7 @@ add this to your `~/.bash_profile` or whichever environment you use:
 # load nvm whenever a terminal starts
 source ~/.nvm/nvm.sh
 # load the version of nvm you want
-nvm use 2
+nvm use 4
 ```
 
 Now every time you open a window,
