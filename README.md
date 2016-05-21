@@ -29,7 +29,7 @@ Some lines you should add are:
 ## XCode Command Line Tools
 
 First, you need to install XCode's command line tools.
-This installs a lot of tools like `git` which aren't needed for plebeians. 
+This installs a lot of tools like `git` which aren't needed for plebeians.
 
 ```bash
 xcode-select --install
@@ -81,7 +81,7 @@ Once in a while, I run `brew prune` and `brew doctor` to keep my computer in che
 One thing many users do is install node.js globally.
 This is easy to get started or fine for servers,
 but it makes developing a pain.
-If you have to ever run `npm` with `sudo`, 
+If you have to ever run `npm` with `sudo`,
 you're doing it wrong!
 
 [nvm](https://github.com/creationix/nvm) is what I think is the best node version manager.
@@ -112,8 +112,26 @@ nvm use 4
 
 Now every time you open a window,
 it will say which version of node you are using.
-This might be annoying, 
+This might be annoying,
 but it's better than not knowing what version you're using!
+
+> NOTE: `nvm` slows down creating new terminals, so you may just want to use `brew install node` if you only need one version of node.
+
+### Default node.js version
+
+Create a `~/.nvmrc` file with just the version you'd like.
+
+```bash
+echo "6" > ~/.nvmrc
+```
+
+Then in your `bash_profile`, add the following line:
+
+```bash
+nvm use
+```
+
+Now, `nvm` will find the nearest `.nvmrc` file and use that version of node whenever the terminal starts.
 
 ### Using npm
 
@@ -148,10 +166,11 @@ alias fuck='$(thefuck $(fc -ln -1))'
 
 ## globstars
 
-OS X, by default, does not support globstars like `**/*.js`. 
+OS X, by default, does not support globstars like `**/*.js`.
 It may work for certain packages who support it,
-but not by default. 
-To add support for it, follow the instructions at http://mistermorris.com/blog/get-yourself-globstar-bash-4-for-your-mac-terminal/.
+but not by default.
+To add support for it, install the latest version of bash with `brew install bash`
+and follow the instructions at http://mistermorris.com/blog/get-yourself-globstar-bash-4-for-your-mac-terminal/.
 
 Then add the following line to your `~/.bash_profile`:
 
@@ -197,6 +216,12 @@ Run the following:
 
 ```bash
 git config --global push.default simple
+```
+
+To have git user the OS X Keychain, run this command:
+
+```bash
+git config --global credential.helper osxkeychain
 ```
 
 ## Setting up databases
@@ -250,16 +275,30 @@ Have fun reading all the option info and typing commands like:
 brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265
 ```
 
-Not only will this install all the dependencies like `webp`, 
+Not only will this install all the dependencies like `webp`,
 it will make sure you can pretty much throw anything at `ffmpeg`.
 
 You'll probably have to do the same with `imagemagick` and/or `graphicsmagick`.
+
+## Ruby
+
+Lots of programs use ruby, so be sure to install it!
+
+```bash
+brew install ruby
+```
 
 ## Java
 
 Unfortunately, a lot of programs still require Java.
 Install Java by googling "Java OS X".
 https://support.apple.com/kb/DL1572?locale=en_US
+
+## DNS Server
+
+Set Google as your computer's DNS server and default search domain,
+which will almost always be better than your ISP's default settings.
+https://developers.google.com/speed/public-dns/docs/using?hl=en#mac_os
 
 ## Other Tools
 
