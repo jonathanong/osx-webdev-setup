@@ -5,9 +5,6 @@ It makes web development a breeze.
 I've tried to use Ubuntu, but unfortunately it's just not as user friendly as OS X.
 I wish to make one for Ubuntu eventually once I figure it out.
 
-Note: this is all from memory and will be revised once I get a new Mac or reformat this one.
-Clarifications and PRs are welcomed.
-
 ## Goals
 
 - Never use `sudo`. Once you run a command with `sudo`, future commands are probably gonna be fucked up as well.
@@ -43,7 +40,7 @@ If you're actually going to use XCode, just install it from the App Store and do
 It makes setting up all your services very easy.
 
 ```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 ## Install everything
@@ -59,9 +56,11 @@ brew install git
 # download stuff
 brew install curl
 # docker on your mac
-brew install boot2docker
+brew install docker docker-machine
 # for your pr0n
 brew install youtube-dl
+# for compiling
+brew install gcc
 ```
 
 ### Updating
@@ -97,17 +96,15 @@ Once you've installed nvm,
 install the version of node.js you use:
 
 ```bash
-nvm install 4
+nvm install 6
 ```
 
 To make sure each terminal uses the version of node you want,
 add this to your `~/.bash_profile` or whichever environment you use:
 
 ```env
-# load nvm whenever a terminal starts
-source ~/.nvm/nvm.sh
-# load the version of nvm you want
-nvm use 4
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 ```
 
 Now every time you open a window,
@@ -169,8 +166,8 @@ alias fuck='$(thefuck $(fc -ln -1))'
 OS X, by default, does not support globstars like `**/*.js`.
 It may work for certain packages who support it,
 but not by default.
-To add support for it, install the latest version of bash with `brew install bash`
-and follow the instructions at http://mistermorris.com/blog/get-yourself-globstar-bash-4-for-your-mac-terminal/.
+To add support for it, install the latest version of bash with `brew install bash`,
+then set the default shell in terminal to `/usr/local/bin/bash`.
 
 Then add the following line to your `~/.bash_profile`:
 
@@ -306,3 +303,4 @@ https://developers.google.com/speed/public-dns/docs/using?hl=en#mac_os
 - [Atom](https://atom.io/) - the best text editor :D
 - [Sublime Text](http://www.sublimetext.com/) - the second best text editor
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - for VMs, which can't be install using Homebrew
+- [SF Fonts](https://developer.apple.com/fonts/)
