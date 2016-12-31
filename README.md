@@ -233,16 +233,12 @@ brew install redis
 Then you'll see information on your terminal like the following:
 
 ```
-To reload redis after an upgrade:
-    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-Or, if you don't want/need launchctl, you can just run:
-    redis-server /usr/local/etc/redis.conf
+To have launchd start redis now and restart at login:
+  brew services start redis
 ```
 
 To read this information again, just type `brew info redis`.
-All I do is copy and paste the first 2 commands listed.
-Voila!
+Run the command and, Voila!
 `redis-server` will always be running!
 You won't have to open a bunch of terminals to keep it running!
 
