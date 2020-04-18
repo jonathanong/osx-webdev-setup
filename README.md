@@ -1,9 +1,6 @@
-# The Perfect Web Development Setup for OS X
+# The Perfect Web Development Setup for OS X / macOS
 
-This is what I perceive as the perfect web development OS X setup.
-It makes web development a breeze.
-I've tried to use Ubuntu, but unfortunately it's just not as user friendly as OS X.
-I wish to make one for Ubuntu eventually once I figure it out.
+This is what I perceive as the perfect web development OS X setup for JavaScript engineers.
 
 ## Goals
 
@@ -13,34 +10,25 @@ I wish to make one for Ubuntu eventually once I figure it out.
 
 ## Environment Profile
 
-My current profile is `~/.bash_profile`.
-I don't know why OS X uses `~/.bash_profile`,
-but it may be different for you.
-Some lines you should add are:
-
-- `ulimit -n 10240` - bumps the maximum number of file descriptors you can have open on your computer.
-  There's no purpose for the default limit, especially on SSDs.
-- `export JOBS=max` - tells `npm` to compile and install all your native addons in parallel and not sequentially.
-  This greatly increases installation times.
+The new default shell in macOS is zsh.
+Create and update your profile at `~/.zshrc`.
 
 ## XCode Command Line Tools
 
 First, you need to install XCode's command line tools.
 This installs a lot of tools like `git` which aren't needed for plebeians.
 
-```bash
+```zsh
 xcode-select --install
 ```
 
-If you're actually going to use XCode, just install it from the App Store and do the whole shebang.
-
 ## Install Homebrew
 
-[Homebrew](http://brew.sh/) is OS X's package manager.
+[Homebrew](https://brew.sh/) is a macOS package manager.
 It makes setting up all your services very easy.
 
-```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 ## Install everything
@@ -48,17 +36,13 @@ It makes setting up all your services very easy.
 Install everything with Homebrew.
 Here are some packages you might be interested in right now:
 
-```bash
+```zsh
 # for editing files
 brew install vim
 # always keep your git up to date by installing it with brew
 brew install git
 # download stuff
 brew install curl
-# docker on your mac
-brew install docker docker-machine
-# for your pr0n
-brew install youtube-dl
 # for compiling
 brew install gcc
 ```
@@ -68,12 +52,11 @@ brew install gcc
 To update your packages,
 simply run:
 
-```bash
+```zsh
 brew update
 brew upgrade
+brew cleanup
 ```
-
-Once in a while, I run `brew prune` and `brew doctor` to keep my computer in check.
 
 ## Install node.js with nvm
 
@@ -83,48 +66,44 @@ but it makes developing a pain.
 If you have to ever run `npm` with `sudo`,
 you're doing it wrong!
 
-[nvm](https://github.com/creationix/nvm) is what I think is the best node version manager.
+[nvm](https://github.com/nvm-sh/nvm) is what I think is the best node version manager.
 It can be installed with homebrew!
 Yes, you use a package manager to install a version manager to install another package manager.
 It's stupid, but they all have their strengths.
 
-```bash
+```zsh
 brew install nvm
 ```
 
-Once you've installed nvm,
-install the version of node.js you use:
+Then, follow the installation instructions:
 
-```bash
-nvm install 6
+```zsh
+% brew info nvm
 ```
 
-To make sure each terminal uses the version of node you want,
-add this to your `~/.bash_profile` or whichever environment you use:
+Then, set a default version of node.js. To use LTS:
 
-```env
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+```zsh
+nvm alias default lts/*
 ```
 
-Now every time you open a window,
-it will say which version of node you are using.
-This might be annoying,
-but it's better than not knowing what version you're using!
+### Default node.js version via `.nvmrc`
 
-> NOTE: `nvm` slows down creating new terminals, so you may just want to use `brew install node` if you only need one version of node.
+Create a `~/.nvmrc` file with a version of node you'd like to use or, for LTS versions, `lts/*`:
 
-### Default node.js version
-
-Create a `~/.nvmrc` file with just the version you'd like.
-
-```bash
-echo "6" > ~/.nvmrc
+```zsh
+echo "lts/*" > ~/.nvmrc
 ```
 
-Then in your `bash_profile`, add the following line:
+Then install that version of node:
 
-```bash
+```zsh
+nvm install
+```
+
+Then in your `~/.zshrc`, add the following line to always use the version of node the current working directory expects:
+
+```zsh
 nvm use
 ```
 
@@ -132,17 +111,22 @@ Now, `nvm` will find the nearest `.nvmrc` file and use that version of node when
 
 ### Using npm
 
-Don't ever use `sudo`!
-You don't need to `sudo npm install -g grunt-cli` or anything anymore.
-Just run `npm install -g eslint` and `eslint` will always be in your path.
-`nvm` adds these to your `$PATH`.
+With `nvm`, you should never be calling any `npm` functions with `sudo`.
+`nvm` adds binaries installed globally to your `$PATH`, so if you install `npm i -g create-react-app`, `create-react-app` will automatically be added to your `$PATH`.
 
-Don't ever upgrade `npm`!
-At least not until node.js and io.js merge.
-If anyone ever tells you to `npm update -g npm` or `npm install -g npm`,
-tell them to shuttup.
+To upgrade `npm`, run `npm -i -g npm`. 
 
-Remember to add `export JOBS=max` in your `~/.bash_profile` so your `npm install`s are faster!
+To have [node binaries install faster](https://www.npmjs.com/package/node-gyp), add the following to your `~/.nvmrc`:
+
+```zsh
+export NPM_CONFIG_JOBS=max
+```
+
+If you hate the npm progress bar like, add this to your `zshrc`:
+
+```zsh
+export NPM_CONFIG_PROGRESS=false
+```
 
 ## thefuck?
 
@@ -151,7 +135,7 @@ It perhaps has the greatest UX of all products, ever.
 
 Installing it is easy:
 
-```bash
+```zsh
 brew install thefuck
 ```
 
@@ -171,7 +155,7 @@ then set the default shell in terminal to `/usr/local/bin/bash`.
 
 Then add the following line to your `~/.bash_profile`:
 
-```bash
+```zsh
 echo "shopt -s globstar" >> ~/.bash_profile
 ```
 
@@ -196,13 +180,13 @@ syntax on
 `git` by default doesn't have autocompletion on OS X.
 Super easy to [install it](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion):
 
-```bash
+```zsh
 brew install bash-completion
 ```
 
 Then add this line to your `~/.bash_profile`:
 
-```bash
+```zsh
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
@@ -211,13 +195,13 @@ fi
 Make sure your git pushes only the current branch.
 Run the following:
 
-```bash
+```zsh
 git config --global push.default simple
 ```
 
 To have git user the OS X Keychain, run this command:
 
-```bash
+```zsh
 git config --global credential.helper osxkeychain
 ```
 
@@ -226,7 +210,7 @@ git config --global credential.helper osxkeychain
 Homebrew makes setting up databases super easy.
 First step - install it with Homebrew:
 
-```bash
+```zsh
 brew install redis
 ```
 
@@ -252,7 +236,7 @@ mostly because I don't have a reason to change the defaults other than, "why not
 
 For example, type the following:
 
-```bash
+```zsh
 brew options ffmpeg
 ```
 
@@ -264,7 +248,7 @@ I haven't found that to be the case - I have to reinstall `ffmpeg` many times - 
 
 Have fun reading all the option info and typing commands like:
 
-```bash
+```zsh
 brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265
 ```
 
@@ -277,7 +261,7 @@ You'll probably have to do the same with `imagemagick` and/or `graphicsmagick`.
 
 Lots of programs use ruby, so be sure to install it!
 
-```bash
+```zsh
 brew install ruby
 ```
 
