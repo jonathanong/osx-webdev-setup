@@ -89,7 +89,7 @@ nvm alias default lts/*
 
 ### Default node.js version via `.nvmrc`
 
-Create a `~/.nvmrc` file with a version of node you'd like to use or, for LTS versions, `lts/*`:
+The `.nvmrc` route of selecting the version of node to use is helpful when you are working on multiple projects with different versions of node. Create a `~/.nvmrc` file with a version of node you'd like to use or, for LTS versions, `lts/*`:
 
 ```zsh
 echo "lts/*" > ~/.nvmrc
@@ -101,10 +101,13 @@ Then install that version of node:
 nvm install
 ```
 
+Note that you should run `nvm install` once in a while to get an updated version of node.
+
 Then in your `~/.zshrc`, add the following line to always use the version of node the current working directory expects:
 
 ```zsh
 nvm use
+# `nvm install`, which is slower, but will always install the latest version of node
 ```
 
 Now, `nvm` will find the nearest `.nvmrc` file and use that version of node whenever the terminal starts.
@@ -139,70 +142,10 @@ Installing it is easy:
 brew install thefuck
 ```
 
-Then alias it as `fuck` (or whatever you want) manually by adding this line to your `~/.bash_profile`:
-
-```env
-alias fuck='$(thefuck $(fc -ln -1))'
-```
-
-## globstars
-
-OS X, by default, does not support globstars like `**/*.js`.
-It may work for certain packages who support it,
-but not by default.
-To add support for it, install the latest version of bash with `brew install bash`,
-then set the default shell in terminal to `/usr/local/bin/bash`.
-
-Then add the following line to your `~/.bash_profile`:
+Then follow the instructions:
 
 ```zsh
-echo "shopt -s globstar" >> ~/.bash_profile
-```
-
-or just:
-
-```
-shopt -s globstar
-```
-
-## vim
-
-By default, `vim` installed via `brew` sucks.
-Create a `~/.vimrc` with the following:
-
-```
-:set nocompatible
-syntax on
-```
-
-## git
-
-`git` by default doesn't have autocompletion on OS X.
-Super easy to [install it](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion):
-
-```zsh
-brew install bash-completion
-```
-
-Then add this line to your `~/.bash_profile`:
-
-```zsh
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-```
-
-Make sure your git pushes only the current branch.
-Run the following:
-
-```zsh
-git config --global push.default simple
-```
-
-To have git user the OS X Keychain, run this command:
-
-```zsh
-git config --global credential.helper osxkeychain
+brew info thefuck
 ```
 
 ## Setting up databases
@@ -228,43 +171,6 @@ You won't have to open a bunch of terminals to keep it running!
 
 Rinse and repeat for all your databases.
 
-## brew options
-
-A lot of packages on Homebrew have terrible defaults.
-I haven't bothered making a PR to update these defaults,
-mostly because I don't have a reason to change the defaults other than, "why not?"
-
-For example, type the following:
-
-```zsh
-brew options ffmpeg
-```
-
-You're probably overloaded with options.
-Fun isn't it?
-Supposedly, once you install a package with homebrew using specific options,
-future updates will use the same options.
-I haven't found that to be the case - I have to reinstall `ffmpeg` many times - but I'm not going to try reproducing it.
-
-Have fun reading all the option info and typing commands like:
-
-```zsh
-brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265
-```
-
-Not only will this install all the dependencies like `webp`,
-it will make sure you can pretty much throw anything at `ffmpeg`.
-
-You'll probably have to do the same with `imagemagick` and/or `graphicsmagick`.
-
-## Ruby
-
-Lots of programs use ruby, so be sure to install it!
-
-```zsh
-brew install ruby
-```
-
 ## Java
 
 Unfortunately, a lot of programs still require Java.
@@ -280,7 +186,7 @@ https://developers.google.com/speed/public-dns/docs/using?hl=en#mac_os
 ## Other Tools
 
 - [iStat Menus](http://bjango.com/mac/istatmenus/) - help me figure out if something's taking too much CPU, RAM, or network
-- [Atom](https://atom.io/) - the best text editor :D
-- [Sublime Text](http://www.sublimetext.com/) - the second best text editor
-- [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - for VMs, which can't be install using Homebrew
 - [SF Fonts](https://developer.apple.com/fonts/)
+- [VS Code](https://code.visualstudio.com/)
+- [GitHub Desktop](https://desktop.github.com/)
+- [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
