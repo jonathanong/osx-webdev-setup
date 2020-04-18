@@ -10,7 +10,7 @@ This is what I perceive as the perfect web development OS X setup for JavaScript
 
 ## Environment Profile
 
-The new default shell in macOS is zsh.
+The new default shell in macOS is `zsh`.
 Create and update your profile at `~/.zshrc`.
 
 ## XCode Command Line Tools
@@ -185,6 +185,7 @@ Alternatively, set this in your router.
 - [VS Code](https://code.visualstudio.com/)
 - [GitHub Desktop](https://desktop.github.com/)
 - [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+- [EditorConfig](https://editorconfig.org/)
 
 ## Etc.
 
