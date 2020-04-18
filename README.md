@@ -78,7 +78,7 @@ brew install nvm
 Then, follow the installation instructions:
 
 ```zsh
-% brew info nvm
+brew info nvm
 ```
 
 Then, set a default version of node.js. To use LTS:
@@ -107,7 +107,7 @@ Then in your `~/.zshrc`, add the following line to always use the version of nod
 
 ```zsh
 nvm use
-# `nvm install`, which is slower, but will always install the latest version of node
+# or `nvm install`, which is slower, but will always install the latest version of node
 ```
 
 Now, `nvm` will find the nearest `.nvmrc` file and use that version of node whenever the terminal starts.
@@ -171,22 +171,21 @@ You won't have to open a bunch of terminals to keep it running!
 
 Rinse and repeat for all your databases.
 
-## Java
-
-Unfortunately, a lot of programs still require Java.
-Install Java by googling "Java OS X".
-https://support.apple.com/kb/DL1572?locale=en_US
-
 ## DNS Server
 
 Set Google as your computer's DNS server and default search domain,
 which will almost always be better than your ISP's default settings.
 https://developers.google.com/speed/public-dns/docs/using?hl=en#mac_os
 
-## Other Tools
+Alternatively, set this in your router.
+
+## Tools & Applications
 
 - [iStat Menus](http://bjango.com/mac/istatmenus/) - help me figure out if something's taking too much CPU, RAM, or network
-- [SF Fonts](https://developer.apple.com/fonts/)
 - [VS Code](https://code.visualstudio.com/)
 - [GitHub Desktop](https://desktop.github.com/)
 - [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+
+## Etc.
+
+- [SF Fonts](https://developer.apple.com/fonts/)
