@@ -131,6 +131,23 @@ If you hate the npm progress bar like, add this to your `zshrc`:
 export NPM_CONFIG_PROGRESS=false
 ```
 
+## Speed up node.js
+
+node.js has by default 4 thread pools [via libuv](http://docs.libuv.org/en/v1.x/threadpool.html) regardless of how many CPUs you have. If you have more CPUs and depending on what you're running locally, you may find a performance benefit in increasing this number.
+
+```zsh
+export UV_THREADPOOL_SIZE=8
+```
+
+## vim
+
+Homebrew's default version of vim doesn't allowing copying and supports the mouse, which IMO defeats the purpose of vim. Here's a basic `~/.vimrc` to fix that:
+
+```vimrc
+set mouse=
+syntax on
+```
+
 ## thefuck?
 
 [thefuck](https://github.com/nvbn/thefuck) is a nifty tool that allows you to fix your previous CLI typos by just typing `fuck`.
