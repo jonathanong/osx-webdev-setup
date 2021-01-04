@@ -22,14 +22,18 @@ This installs a lot of tools like `git` which aren't needed for plebeians.
 xcode-select --install
 ```
 
-## Install Homebrew
-
-[Homebrew](https://brew.sh/) is a macOS package manager.
-It makes setting up all your services very easy.
+If you're on Apple Silicon, you may want to install Rosetta 2:
 
 ```zsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+softwareupdate --install-rosetta
 ```
+
+## Install Homebrew
+
+[Homebrew](https://brew.sh/) is a macOS package manager that makes setting up all your services very easy.
+
+- For Intel Macs, you can just install with the simple script on the homepage.
+- For Apple Silicon Macs, I would recommend following this guide: https://soffes.blog/homebrew-on-apple-silicon
 
 ## Install everything
 
@@ -43,8 +47,6 @@ brew install vim
 brew install git
 # download stuff
 brew install curl
-# for compiling
-brew install gcc
 ```
 
 ### Updating
