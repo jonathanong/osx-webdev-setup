@@ -12,6 +12,7 @@ This is what I perceive as the perfect web development OS X setup for JavaScript
 
 The new default shell in macOS is `zsh`.
 Create and update your profile at `~/.zshrc`.
+You may also want to `brew install zsh-completions zsh-autosuggestions`.
 
 ## XCode Command Line Tools
 
