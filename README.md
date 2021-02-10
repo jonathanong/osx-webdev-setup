@@ -191,22 +191,29 @@ You won't have to open a bunch of terminals to keep it running!
 
 Rinse and repeat for all your databases.
 
-## DNS Server
+## git & GitHub
 
-Set Google as your computer's DNS server and default search domain,
-which will almost always be better than your ISP's default settings.
-https://developers.google.com/speed/public-dns/docs/using?hl=en#mac_os
+You may want to set up a few configs.
 
-Alternatively, set this in your router.
+Always fast-forward when pulling (never rebase as it may mess up your local branch):
+
+```zsh
+git config --global pull.ff only 
+```
+
+- [Setup SSH for GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [GitHub Desktop](https://desktop.github.com/)
+- [GitHub CLI](https://cli.github.com)
 
 ## Tools & Applications
 
 - [iStat Menus](http://bjango.com/mac/istatmenus/) - help me figure out if something's taking too much CPU, RAM, or network
 - [VS Code](https://code.visualstudio.com/)
-- [GitHub Desktop](https://desktop.github.com/)
 - [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
 - [EditorConfig](https://editorconfig.org/)
-
-## Etc.
-
-- [SF Fonts](https://developer.apple.com/fonts/)
+- [Set up private npm token](https://docs.npmjs.com/using-private-packages-in-a-ci-cd-workflow)
+- [Set up ssh without typing your password](https://superuser.com/questions/8077/how-do-i-set-up-ssh-so-i-dont-have-to-type-my-password)
+- [Bittorrent blocklist](https://gist.github.com/shmup/29566c5268569069c256)
+- [Hosts file blocklist](https://github.com/StevenBlack/hosts)
+- [Google DNS](https://developers.google.com/speed/public-dns)
+- [Cloudflare DNS](https://1.1.1.1/dns/)
